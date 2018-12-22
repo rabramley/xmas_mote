@@ -50,8 +50,7 @@ def set_row(row, shade):
 
 
 def pause_reducing():
-    for x in range(1, 20):
-        pause = 1 - (0.05 * x)
+    for pause in [x / 20 for x in range(20, 1, -1)]:
         for _ in range(int(2 / pause)):
             yield
             time.sleep(pause)
