@@ -98,26 +98,21 @@ def animate_rows():
         itertools.repeat(s, 4) for s in random_shades()
     ]))
 
-    s = []
-
-    for _ in range(num_pixels):
-       s.insert(0, next(_shades))
-
     for _ in pause_reducing():
 
-        for row in range(num_pixels):
-            set_row(row, s[row])
+        for row in range(num_pixels - 1):
+            old_shade = mote.get_pixel(1, row + 1)
+            set_row(row, old_shade)
 
-        s.pop()
-        s.insert(0, next(_shades))
+        set_row(num_pixels - 1, next(_shades))
         mote.show()
 
 try:
 
     animations = [
         animate_rows,
-        animate_columns,
-        animate_halves,
+        #animate_columns,
+        #animate_halves,
     ]
 
     while True:
