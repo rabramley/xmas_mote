@@ -100,11 +100,11 @@ def animate_rows():
 
     for _ in pause_reducing():
 
-        for row in range(num_pixels - 1):
-            old_shade = mote.get_pixel(1, row + 1)
+        for row in range(num_pixels - 1, 0, -1):
+            old_shade = mote.get_pixel(1, row - 1)
             set_row(row, old_shade)
 
-        set_row(num_pixels - 1, next(_shades))
+        set_row(0, next(_shades))
         mote.show()
 
 try:
