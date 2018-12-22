@@ -54,7 +54,6 @@ def pause_reducing():
         for _ in range(int(2 / pause)):
             yield
             time.sleep(pause)
-            print(pause)
 
 
 def animate_halves():
@@ -96,7 +95,7 @@ def animate_columns():
 def animate_rows():
 
     _shades = itertools.cycle(itertools.chain(*[
-        itertools.repeat(s, 3) for s in random_shades()
+        itertools.repeat(s, 4) for s in random_shades()
     ]))
 
     s = []
